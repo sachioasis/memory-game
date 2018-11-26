@@ -1,9 +1,9 @@
 /*
  * Global variables related to memory game
  */
-let icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o",
-    "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb"
-];
+let icons = ["fa fa-diamond", "fa fa-paper-plane-o","fa fa-anchor", "fa fa-bolt",  
+    "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o","fa fa-anchor", "fa fa-bolt",  
+    "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];   
 let openedCards = [];
 let matchedCards = [];
 let firstClick = true;
@@ -89,7 +89,22 @@ function matching(currentCard, openedCard) {
         document.querySelector(".stars").innerHTML = star;
     } else {
         clearInterval(live);
-        alert("Game Over!");
+        //alert("Game Over!");
+        let numStars = document.getElementsByClassName('fa-star').length;
+        swal({
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            title: 'Game Over!',
+            text: 'You already took ' + flippedCount + ' Moves with ' + totalTime + ' Seconds. No star left.',
+            confirmButtonColor: '#02ccba',
+            confirmButtonText: 'Try again!'
+        }).then(function(isConfirm) {
+            if (isConfirm) {
+                window.location.reload();
+            }
+        })
+
+
         document.querySelector(".deck").innerHTML = "";
         reset();
         init();
@@ -105,9 +120,24 @@ function matching(currentCard, openedCard) {
         openedCards = [];
 
         // Check if the user finishes the game
-        if (matchedCards.length === icons.length) {
+        if (matchedCards.length === 16) {
             clearInterval(live);
-            alert("Congratulations!!");
+            //alert("Congratulations!!");
+            let numStars = document.getElementsByClassName('fa-star').length;
+            swal({
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                title: 'Congratulations!',
+                text: 'You took ' + flippedCount + ' Moves (' + numStars + ' Stars) with ' + totalTime + ' Seconds.',
+                type: 'success',
+                confirmButtonColor: '#02ccba',
+                confirmButtonText: 'Play again!'
+            }).then(function(isConfirm) {
+                if (isConfirm) {
+                    window.location.reload();
+                }
+            })
+
         }
 
     } else {

@@ -1,20 +1,22 @@
 # Memory Game Project
 
-## Table of Contents
+## Build
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* This game is created just using HTML, CSS, and JavaScript.
+* Please connect to gather dependencies and run properly.
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* To start a game, run the index.html file in a browser or click https://sachioasis.github.io/memory-game/.
+* Click a card to flip it and the timer will start after the first flip.
+* If two cards match, they get locked with green color.
+* If the cards do not match, they will flip back.
+* You will win if all the cards match.
+* The players should try to get as few moves as possible in minimum time to earn maximum stars.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Dependencies
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+* SweetAlert2
+* Font-Awesome
+* Google Fonts
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
